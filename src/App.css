@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+nav {
+  background-color: #fdfdfd;
+  padding: 1em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+body {
+  background-color: #ebe4f3;
+  margin: 0; 
+  padding: 0;
+}
+

@@ -1,0 +1,92 @@
+.container {
+    display: flex;
+    justify-content: space-between; /* Ensures even spacing between forms */
+    align-items: flex-start;
+    margin: 20px;
+}
+
+form {
+    flex: 1; 
+    margin: 10px; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 45%; 
+}
+
+form h2 {
+    text-align: center;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="number"],
+form input[type="password"],
+form textarea {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.text {
+    color: purple;
+    font-weight: 700;
+}
+
+.fas.fa-briefcase,
+.fas.fa-user {
+    margin-right: 2%;
+}
+form label.radio-label {
+    margin-top: 20px; 
+}
+
+.d-flex{
+    display: flex;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.justify-content-around{
+    justify-content: space-around;
+}
+
+
+.mt-24px{
+    margin-top: 24px;
+}
+
+.register-btn{
+    padding: 8px 16px;
+    background-color: purple;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.reg-center{
+    
+}
