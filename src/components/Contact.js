@@ -4,17 +4,8 @@ import db from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
-import Modal from './Modal';
-import Login from './Login';
-import Registration from './Registration';
-
 
 function Contact() {
-    const [showModal, setShowModal] = useState(false);
-    const [isLogin, setIsLogin] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [username, setUsername] = useState('');
-    
     const [creator, setCreator] = useState({
         name: '',
         email: '',
@@ -115,36 +106,8 @@ function Contact() {
         });
     };
 
-    const handleClose = () => {
-        setShowModal(false);
-      };
-    
-      const handleAuthSuccess = (user) => {
-        setUsername(user?.username);
-        setUserType(user?.userType);
-        setIsAuthenticated(true);
-        setShowModal(false);
-        // Save authentication state to local storage
-        localStorage.setItem('user', JSON.stringify(user));
-      };
-    
-
     return (
         <div className="contact-form-container">
-             {(!userType.creator && !userType.business) &&(
-                <Modal show={true} handleClose={handleClose}>
-                {isLogin ? <Login onSuccess={handleAuthSuccess} /> : <Registration onSuccess={handleAuthSuccess} />}
-                {isLogin ? (
-                  <p>New user? <span onClick={() => setIsLogin(false)} className="toggle-link">Register here</span></p>
-                ) : (
-                  <p>Already registered? <span onClick={() => setIsLogin(true)} className="toggle-link">Login here</span></p>
-                )}
-                <h1>Login</h1>
-             </Modal>
-            )}
-
-
-            {userType.creator && (
             <form onSubmit={handleCreatorSubmit}>
                 <h2 className='text'><i className="fas fa-user"></i> Creator Form</h2>
                 <label>
@@ -192,9 +155,8 @@ function Contact() {
                     <input type="submit" value="Submit" />
                 </div>
             </form>
-    )}
 
-            {userType.business && (
+
             <form onSubmit={handleBusinessSubmit}> 
                 <h2 className='text'><i className="fas fa-briefcase"></i> Business Form</h2>
                 <label>
@@ -278,7 +240,6 @@ function Contact() {
                     <input type="submit" value="Submit" />
                 </div>
             </form>
-            )}
         </div>
     );
 }
