@@ -6,6 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
 
 function Contact() {
+    const navigate = useNavigate();
     const [creator, setCreator] = useState({
         name: '',
         email: '',
@@ -75,6 +76,7 @@ function Contact() {
             }));
         }
     };
+
     const handleDateChange = (date) => {
         setBusiness((prevState) => ({
             ...prevState,
@@ -88,7 +90,7 @@ function Contact() {
             if (err) {
                 console.log(err);
             } else {
-                alert('Message sent to creator team!');
+                navigate('/thankyou');
                 setCreator({ name: '', email: '', phoneNumber: '', skills: '', businessIdeas: '', portfolioLinks: '', location: '', pastProjects: '', fundingAmount: '', profilePicture: '' });
             }
         });
@@ -100,7 +102,7 @@ function Contact() {
             if (err) {
                 console.log(err);
             } else {
-                alert('Message sent to business team!');
+                navigate('/thankyou');
                 setBusiness({ name: '', email: '', description: '', partnershipDetails: '', targetAudience: '', location: '', collaborationGoals: '', headquartersRegions: '', foundedDate: new Date(), founders: '', operatingStatus: 'active', lastFundingType: '', companyType: '', logo: null });
             }
         });
@@ -111,23 +113,23 @@ function Contact() {
             <form onSubmit={handleCreatorSubmit}>
                 <h2 className='text'><i className="fas fa-user"></i> Creator Form</h2>
                 <label>
-                    Creator Name <span>*</span>
+                    Creator Name <span className='red-mark'>*</span>
                     <input type="text" name="name" value={creator.name} onChange={handleCreatorChange} placeholder="Creator Name" required />
                 </label>
                 <label>
-                    Creator Email <span>*</span>
+                    Creator Email <span className='red-mark'>*</span>
                     <input type="email" name="email" value={creator.email} onChange={handleCreatorChange} placeholder="Creator Email" required />
                 </label>
                 <label>
-                    Phone Number <span>*</span>
+                    Phone Number <span className='red-mark'>*</span>
                     <input type="tel" name="phoneNumber" value={creator.phoneNumber} onChange={handleCreatorChange} placeholder='Creator Number' required />
                 </label>
                 <label>
-                    Skills <span>*</span>
+                    Skills <span className='red-mark'>*</span>
                     <textarea name="skills" value={creator.skills} onChange={handleCreatorChange} placeholder="Skills" required />
                 </label>
                 <label>
-                    Business Ideas <span>*</span>
+                    Business Ideas <span className='red-mark'>*</span>
                     <textarea name="businessIdeas" value={creator.businessIdeas} onChange={handleCreatorChange} placeholder="Business Ideas" required />
                 </label>
                 <label>
@@ -135,7 +137,7 @@ function Contact() {
                     <textarea name="portfolioLinks" value={creator.portfolioLinks} onChange={handleCreatorChange} placeholder="Portfolio Links (e.g., website, social media)" />
                 </label>
                 <label>
-                    Location <span>*</span>
+                    Location <span className='red-mark'>*</span>
                     <input type="text" name="location" value={creator.location} onChange={handleCreatorChange} placeholder="Location" required />
                 </label>
                 <label>
@@ -143,7 +145,7 @@ function Contact() {
                     <textarea name="pastProjects" value={creator.pastProjects} onChange={handleCreatorChange} placeholder="Past Projects/Experience" />
                 </label>
                 <label>
-                    Funding Amount <span>*</span>
+                    Funding Amount <span className='red-mark'>*</span>
                     <input type="number" name="fundingAmount" value={creator.fundingAmount} onChange={handleCreatorChange} placeholder='Funding Amount' required />
                 </label>
                 <label>
@@ -156,19 +158,18 @@ function Contact() {
                 </div>
             </form>
 
-
             <form onSubmit={handleBusinessSubmit}> 
                 <h2 className='text'><i className="fas fa-briefcase"></i> Business Form</h2>
                 <label>
-                    Business Name <span>*</span>
+                    Business Name <span className='red-mark'>*</span>
                     <input type="text" name="name" value={business.name} onChange={handleBusinessChange} placeholder="Business Name" required />
                 </label>
                 <label>
-                    Business Email <span>*</span>
+                    Business Email <span className='red-mark'>*</span>
                     <input type="email" name="email" value={business.email} onChange={handleBusinessChange} placeholder="Business Email" required />
                 </label>
                 <label>
-                    Description <span>*</span>
+                    Description <span className='red-mark'>*</span>
                     <textarea name="description" value={business.description} onChange={handleBusinessChange} placeholder="Description" required />
                 </label>
                 <label>
@@ -176,11 +177,11 @@ function Contact() {
                     <textarea name="partnershipDetails" value={business.partnershipDetails} onChange={handleBusinessChange} placeholder="Partnership Details" />
                 </label>
                 <label>
-                    Target Audience <span>*</span>
+                    Target Audience <span className='red-mark'>*</span>
                     <textarea name="targetAudience" value={business.targetAudience} onChange={handleBusinessChange} placeholder="Target Audience" required />
                 </label>
                 <label>
-                    Location <span>*</span>
+                    Location <span className='red-mark'>*</span>
                     <input type="text" name="location" value={business.location} onChange={handleBusinessChange} placeholder="Location" required />
                 </label>
                 <label>
@@ -188,21 +189,21 @@ function Contact() {
                     <textarea name="collaborationGoals" value={business.collaborationGoals} onChange={handleBusinessChange} placeholder="Collaboration Goals" />
                 </label>
                 <label>
-                    Headquarters Regions <span>*</span>
+                    Headquarters Regions <span className='red-mark'>*</span>
                     <input type="text" name="headquartersRegions" value={business.headquartersRegions} onChange={handleBusinessChange} placeholder="Headquarters Regions" required />
                 </label>
                 <label>
-                    Founded Date <span>*</span>
+                    Founded Date <span className='red-mark'>*</span>
                     <DatePicker selected={business.foundedDate} onChange={handleDateChange} required />
                 </label>
                 <br></br>
                 <label>
-                    Founders <span>*</span>
+                    Founders <span className='red-mark'>*</span>
                     <textarea name="founders" value={business.founders} onChange={handleBusinessChange} placeholder="Founders" required />
                 </label>
 
                 <label className='form-label'>
-                    Operating Status <span>*</span>
+                    Operating Status <span className='red-mark'>*</span>
                     <div style={{marginTop: '20px'}}>
                         <label className='radio-btn'>
                             <input
@@ -228,7 +229,7 @@ function Contact() {
                 </label>
                 <br/>
                 <label>
-                    Company Type <span>*</span>
+                    Company Type <span className='red-mark'>*</span>
                     <input type="text" name="companyType" value={business.companyType} onChange={handleBusinessChange} placeholder="Company Type" required />
                 </label>
                 <label>

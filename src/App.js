@@ -6,6 +6,7 @@ import SuccessStoriesPage from './Pages/SucessStoriesPage';
 import Navbar from './components/Navbar'; 
 import './App.css'; 
 import DashboardPage from './Pages/DashboardPage';
+import ThankYouPage from './Pages/ThankYouPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/success-stories" element={<SuccessStoriesPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/thankyou" element={<ThankYouPage/>} />
       </Routes>
     </Router>
   );

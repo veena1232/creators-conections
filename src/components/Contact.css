@@ -61,3 +61,6 @@ form label.radio-label {
 .radio-btn{
     margin-right: 40px;
 }
+.red-mark{
+    color: red;
+}
